@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/secondActivityLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:background="@android:color/white"
+        android:padding="@dimen/padding_medium">
+
+        <TextView
+            android:id="@+id/stickyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:text="@string/title_stickyEvent"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/message2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stickyTitle"/>
+        <EditText
+            android:id="@+id/activity1Data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/message2"
+            android:hint="@string/hint_message"/>
+
+        <Button
+            android:id="@+id/showSecondActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity1Data"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/padding_large"
+            android:text="@string/show_first_activity"/>
+
+    </RelativeLayout>
+</RelativeLayout>
