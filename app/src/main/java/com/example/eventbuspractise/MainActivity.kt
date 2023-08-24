@@ -25,6 +25,7 @@ class MainActivity : BaseActivity() {
 
         addFragment()
         clickListeners()
+        Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show()
 
     }
 
@@ -41,28 +42,19 @@ class MainActivity : BaseActivity() {
     fun getMessage(fragmentActivityMessage: FragmentActivityMessage) {
         binding.message.text =
             getString(R.string.message_received) + " " + fragmentActivityMessage.message
-        Toast.makeText(
-            applicationContext,
-            getString(R.string.message_main_activity) + " " + fragmentActivityMessage.message,
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     fun getActivityMessage(activityActivityMessage: ActivityActivityMessage) {
         binding.message2.text =
             getString(R.string.message_received) + " " + activityActivityMessage.message
-        Toast.makeText(
-            applicationContext,
-            getString(R.string.message_main_activity) + " " + activityActivityMessage.message,
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
     private fun showSecondActivity() {
         // Post an Sticky event before starting an activity to show the message,
         // sent by the MainActivity, in SecondActivity.
-        val activityActivityMessageEvent = ActivityActivityMessage(binding.activity1Data.text.toString())
+        val activityActivityMessageEvent =
+            ActivityActivityMessage(binding.activity1Data.text.toString())
         getBus().postSticky(activityActivityMessageEvent)
         // Start SecondActivity.
         startActivity(Intent(this, Activity1::class.java))
@@ -80,7 +72,6 @@ class MainActivity : BaseActivity() {
             .add(R.id.fragmentContainer, Fragment1())
             .commit()
     }
-
 
 
 }
