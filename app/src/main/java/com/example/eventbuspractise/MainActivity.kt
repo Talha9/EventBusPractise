@@ -25,7 +25,7 @@ class MainActivity : BaseActivity() {
 
         addFragment()
         clickListeners()
-        Toast.makeText(this, "Main", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "R2", Toast.LENGTH_SHORT).show()
 
     }
 
